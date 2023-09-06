@@ -1,0 +1,16 @@
+cd PrologEjemplo
+git init (prepara la carpeta del repositorio)
+git remote add origin git@...
+git remote set-url origin 
+git branch -M main
+git pull origin main
+git commit -m 'primer commit'(listo para subirse)
+git push origin main (se sube el archivo)
+git status(cambios de estado del repositorio)
+
+backdown
+
+echo -> para hacer un archivo en blanco 
+git add-> poner nombre del archivo o poner un .
+git commit -m 'mi primer commit'
+git puch origin main
