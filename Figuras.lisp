@@ -1,0 +1,8 @@
+(defun figuraC()
+(princ "Dame la medida de un lado: ")
+(setq lado1(read))
+(setq resultadoV (* lado1 lado1 lado1))
+(setq resultadoA (* lado1 lado1 (* 6)))
+(write resultadoA)
+(write resultadoV)
+)
