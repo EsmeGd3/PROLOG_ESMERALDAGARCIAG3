@@ -71,3 +71,19 @@
 (princ "Area de superficie del trapecio: ")
 (write resultadoA)
 )
+
+(defun hexagono()
+(princ "Dame la medida de un lado del hexagono: ")
+(setq lado (read))
+(princ "Dame la altura del prisma hexagonal: ")
+(setq al (read))
+(setq resultadoA (/ (* 3 (sqrt 3) (* lado lado)) 2))
+(setq resultadoV (* resultadoA al)) 
+(princ "Volumen del hexagono: ")
+(write resultadoV)
+(terpri)
+(princ "Area base del hexagono: ")
+(write resultadoA)
+)
+
+
