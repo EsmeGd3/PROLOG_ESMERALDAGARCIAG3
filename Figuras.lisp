@@ -75,7 +75,7 @@
 (defun hexagono()
 (princ "Dame la medida de un lado del hexagono: ")
 (setq lado (read))
-(princ "Dame la altura del prisma hexagonal: ")
+(princ "Dame la altura del hexagonal: ")
 (setq al (read))
 (setq resultadoA (/ (* 3 (sqrt 3) (* lado lado)) 2))
 (setq resultadoV (* resultadoA al)) 
@@ -114,4 +114,5 @@
 (write resultadoA)
 )
 
+; ya no se me ocurren mas figuras 
 
