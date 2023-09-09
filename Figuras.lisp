@@ -114,5 +114,40 @@
 (write resultadoA)
 )
 
-; ya no se me ocurren mas figuras 
+; ya no se me ocurren mas figuras faltan 2
+
+(defun piramideHexagonal()
+(princ "Dame la medida de un lado del hexagonal base: ")
+(setq lado (read))
+(princ "Dame la altura de la piramide hexagonal: ")
+(setq al (read))
+(setq areab (/ (* 3 (sqrt 3) (* lado lado)) 2)) ; 
+(setq areal (* 6 (/ (* lado lado (sqrt 3)) 4))) ; 
+(setq resultadoA (+ areab areal)) ; 
+(setq resultadoV (/ (* areab al) 3)) ; 
+(princ "Volumen del conito: ")
+(write resultadoV)
+(terpri)
+(princ "Area base del conito: ")
+(write resultadoA)
+)
+
+(defun piramidePentagonal()
+(princ "Dame la medida de un lado del pentagono base: ")
+(setq lado (read))
+(princ "Dame la altura de la piramide pentagonal: ")
+(setq al (read))
+(setq areab (/ (* 5 (* lado lado) (/ 1 (tan (/ 3.14159 5)))) 4)) ; 
+(setq areal (* 5 (/ (* lado al) 2))) ; 
+(setq resultadoA (+ areab areal)) ; 
+(setq resultadoV (/ (* areab al) 3)) ; 
+(princ "Volumen del conito: ")
+(write resultadoV)
+(terpri)
+(princ "Area base del conito: ")
+(write resultadoA)
+)
+
+; No se si estan bien los resultados jaja yo digo que chi
+
 
