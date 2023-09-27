@@ -1,0 +1,15 @@
+(defun areaCuadrado (a b )
+(princ "Dame un numero")
+(read a)
+(princ ("Dame otro numero"))
+(*a b) 
+
+)
+(defvar *areaCuadrado* (lambda a b)(* a b))
+
+defun dameDatos()
+(princ "Dame dato")
+(read a)
+(princ "Dame otro dato")
+(read b)
+(format t "El resultado es ~A" (funcall *areaCuadrado* a b))
