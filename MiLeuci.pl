@@ -1,7 +1,7 @@
 leuci:-	
 	
 	writeln('Hola, mi nombre es Leuci, tu chatbot de ayuda sobre leucemia.'),
-    writeln('Por favor, ingresa tu consulta (usar solo minúsculas y "." al final):'),
+    writeln('Por favor, ingresa tu consulta (usar solo minusculas y "." al final):'),
 	writeln('Dime lo que quieras saber, como te sientes y te ayudare depende de lo que preguntes.'),	
 	readln(Input),
 	eliza(Input),!.
@@ -19,7 +19,7 @@ eliza(Input):- Input == ['Adios', '.'],
 	template(Stim, Resp, IndStim),
 	match(Stim, Input),
 
-	% si he llegado aquí es que he
+	% si he llegado aqui es que he
 	% hallado el template correcto:
 
 	replace0(IndStim, Input, 0, Resp, R),
@@ -27,25 +27,52 @@ eliza(Input):- Input == ['Adios', '.'],
 	readln(Input1),
 	eliza(Input1), !.
 
-	 % error
-	template(_, ['Disculpa, no entiendo tu pregunta, puedes volver a escribir por favor, recuerdo poner un "." al final de cada oracion.'], []). 
-   
-
+	
     % Leucemia
 	template([hola, mi, nombre, es, s(_), '.'], ['Hola', 0, 'como', estas, '?'], [4]).
     template([estoy, bien, gracias, _], ['Excelente, Dime en que te puedo ayudar?'], []).
     template([bien, gracias, _], ['Excelente, Dime en que te puedo ayudar?'], []).
     template([muy, bien, gracias, _], ['Excelente, Dime en que te puedo ayudar?'], []).
-	template([cual, es, tu, nombre, ?, _], ['Mi nombre es leuci, soy una base de conocimientos que fue creada para abrobar la materia de PROLOG, aparte de eso te puedo ayudar brindandote información acerca de la Leucemia :3'], []).
-	template([cual, es, tu, nombre, _], ['Mi nombre es leuci, soy una base de conocimientos que fue creada para abrobar la materia de PROLOG, aparte de eso te puedo ayudar brindandote información acerca de la Leucemia :3'], []).
+	template([cual, es, tu, nombre, ?, _], ['Mi nombre es leuci, soy una base de conocimientos que fue creada para abrobar la materia de PROLOG, aparte de eso te puedo ayudar brindandote informacion acerca de la Leucemia :3'], []).
+	template([cual, es, tu, nombre, _], ['Mi nombre es leuci, soy una base de conocimientos que fue creada para abrobar la materia de PROLOG, aparte de eso te puedo ayudar brindandote informacion acerca de la Leucemia :3'], []).
 	template([que, informacion, sabes, sobre, la, leucemia, ?, _], ['Sobre la Leucemia, se acerca de varios temas que te pueden interesar como: Causas y factores de riesgo, Tipos y clasificacion, Sintomas y diagnostico, Tratamientos disponibles, Investigacion y avances medicos, Impacto emocional y apoyo, Prevencion y estilo de vida. ¿Dime que te interesa saber? :3'], []).
 	template([que, es, leucemia, ?, _], ['La leucemia es un tipo de cancer que afecta a las celulas sanguineas y a la medula osea, donde se producen estas celulas. Se caracteriza por la produccion descontrolada de celulas sanguineas anormales, que remplazan a las celulas sanguineas normales.'], []).
 	template([que, tipos, de, leucemia, hay, ?, _], ['Hay varios tipos de leucemia, siendo los principales la leucemia mieloide aguda (LMA), la leucemia mieloide cronica (LMC), la leucemia linfoblastica aguda (LLA) y la leucemia linfoblastica cronica (LLC).'], []).
-
+    template([que, tratamiento, debo, tomar, si, tengo, leucemia, ?, _], ['El tratamiento especifico de la leucemia depende del tipo exacto de leucemia, la edad del paciente, la salud general y otros factores individuales.'], []).
+	template([que, es, quimioterapia, ?, _], ['La quimioterapia es un tratamiento comun para la leucemia y utiliza medicamentos para eliminar o controlar las celulas cancerosas. Puede administrarse por via oral o intravenosa.'], []).
+	
+    
 	% LMA
 	template([que, es, leucemia, mieloide, aguda, ?, _], ['Es un tipo de cancer de la sangre y la medula osea que afecta a las celulas mieloides inmaduras'], []).
     template([que, es, lma, ?, _], ['La leucemia mieloide aguda (LMA), es un tipo de cancer de la sangre y la medula osea que afecta a las celulas mieloides inmaduras'], []).
-    template([que, celulas, afecta,la, lma, ?, _], ['La leucemia mieloide aguda (LMA), es un tipo de cancer de la sangre y la medula osea que afecta a las celulas mieloides inmaduras'], []).
+    template([que, celulas, afecta, la, lma, ?, _], ['La LMA afecta a las celulas mieloides, que normalmente se desarrollarian para convertirse en globulos rojos, globulos blancos y plaquetas.'], []).
+    template([cual, es, la, principal, caracteristica, de, la, lma ?, _], ['Es la acumulacion de Celulas Inmaduras por que se caracteriza por la rapida proliferacion de celulas mieloides inmaduras en la medula osea, lo que interfiere con la produccion normal de celulas sanguineas'], []).
+    template([cuales, son, los, sintomas, de, la, lma, ?, _], ['Fatiga, Dificultad para respirar, Mayor susceptibilidad a las infecciones, Hematomas y sangrado facil, Dolor en los huesos y articulaciones.'], []).
+    template([que , diagnostico, se , realiza, de, la, lma, ?, _], ['Analisis de Sangre, Biopsia de Medula Osea, Citogenetica.'], []).
+    
+	% LMC
+	template([que, es, leucemia, mieloide, aguda, ?, _], ['Es un tipo de cancer de la sangre y la medula osea que afecta a las celulas mieloides inmaduras'], []).
+    template([que, es, lma, ?, _], ['La leucemia mieloide aguda (LMA), es un tipo de cancer de la sangre y la medula osea que afecta a las celulas mieloides inmaduras'], []).
+    template([que, celulas, afecta, la, lma, ?, _], ['La LMA afecta a las celulas mieloides, que normalmente se desarrollarian para convertirse en globulos rojos, globulos blancos y plaquetas.'], []).
+    template([cual, es, la, principal, caracteristica, de, la, lma ?, _], ['Es la acumulacion de Celulas Inmaduras por que se caracteriza por la rapida proliferacion de celulas mieloides inmaduras en la medula osea, lo que interfiere con la produccion normal de celulas sanguineas'], []).
+    template([cuales, son, los, sintomas, de, la, lma, ?, _], ['Fatiga, Dificultad para respirar, Mayor susceptibilidad a las infecciones, Hematomas y sangrado facil, Dolor en los huesos y articulaciones.'], []).
+    template([que , diagnostico, se , realiza, de, la, lma, ?, _], ['Analisis de Sangre, Biopsia de Medula Osea, Citogenetica.'], []).
+    
+	% LLA
+	template([que, es, leucemia, mieloide, aguda, ?, _], ['Es un tipo de cancer de la sangre y la medula osea que afecta a las celulas mieloides inmaduras'], []).
+    template([que, es, lma, ?, _], ['La leucemia mieloide aguda (LMA), es un tipo de cancer de la sangre y la medula osea que afecta a las celulas mieloides inmaduras'], []).
+    template([que, celulas, afecta, la, lma, ?, _], ['La LMA afecta a las celulas mieloides, que normalmente se desarrollarian para convertirse en globulos rojos, globulos blancos y plaquetas.'], []).
+    template([cual, es, la, principal, caracteristica, de, la, lma ?, _], ['Es la acumulacion de Celulas Inmaduras por que se caracteriza por la rapida proliferacion de celulas mieloides inmaduras en la medula osea, lo que interfiere con la produccion normal de celulas sanguineas'], []).
+    template([cuales, son, los, sintomas, de, la, lma, ?, _], ['Fatiga, Dificultad para respirar, Mayor susceptibilidad a las infecciones, Hematomas y sangrado facil, Dolor en los huesos y articulaciones.'], []).
+    template([que , diagnostico, se , realiza, de, la, lma, ?, _], ['Analisis de Sangre, Biopsia de Medula Osea, Citogenetica.'], []).
+    
+	% LLC
+	template([que, es, leucemia, mieloide, aguda, ?, _], ['Es un tipo de cancer de la sangre y la medula osea que afecta a las celulas mieloides inmaduras'], []).
+    template([que, es, lma, ?, _], ['La leucemia mieloide aguda (LMA), es un tipo de cancer de la sangre y la medula osea que afecta a las celulas mieloides inmaduras'], []).
+    template([que, celulas, afecta, la, lma, ?, _], ['La LMA afecta a las celulas mieloides, que normalmente se desarrollarian para convertirse en globulos rojos, globulos blancos y plaquetas.'], []).
+    template([cual, es, la, principal, caracteristica, de, la, lma ?, _], ['Es la acumulacion de Celulas Inmaduras por que se caracteriza por la rapida proliferacion de celulas mieloides inmaduras en la medula osea, lo que interfiere con la produccion normal de celulas sanguineas'], []).
+    template([cuales, son, los, sintomas, de, la, lma, ?, _], ['Fatiga, Dificultad para respirar, Mayor susceptibilidad a las infecciones, Hematomas y sangrado facil, Dolor en los huesos y articulaciones.'], []).
+    template([que , diagnostico, se , realiza, de, la, lma, ?, _], ['Analisis de Sangre, Biopsia de Medula Osea, Citogenetica.'], []).
     
    
 	% Sintomas
@@ -54,17 +81,19 @@ eliza(Input):- Input == ['Adios', '.'],
 	template([si, tengo, un, dolor, de, s(_), es, sintoma, de, leucemia, ?, _], [flagSintomas], [5]).
 	template([si, tengo, un, s(_), es, sintoma, de, leucemia, _], [flagSintomas], [3]).
 	template([tengo, s(_), es, sintoma, de, leucemia, ?, _], [flagSintomas], [1]).
-	template([si, tengo, s(_), es, sintoma, de, leucemia, ?, _], [flagSintomas], [3]).
+	template([si, tengo, s(_), es, sintoma, de, leucemia, ?, _], [flagSintomas], [2]).
 	template([si, tengo, problemas, de, s(_), es, sintoma, de, leucemia, ?, _], [flagSintomas], [4]).
 
-	% medicamentos
+	% tratamientos
 	template([puedo, tomar, s(_), para, la, leucemia, ?, _], [flagMedicamentos], [2]).
 	template([puedo, tomar, s(_), ?, _], [flagMedicamentos], [2]).
+	
+
 	
 	
 	% sintomas de Leucemia.
 
-	template([cuales, son, los, sintomas], ListaResultado, []):-
+	template([cuales, son, los, sintomas, de, leucemia, ?], ListaResultado, []):-
 		findall(Sintomas, sintomas(Sintomas), ListaResultado).
 
 	% Especialista en el area de la enfermedad Leucemia
@@ -94,6 +123,11 @@ eliza(Input):- Input == ['Adios', '.'],
 	
 	template([medicamento], ListaResultado, []):-
 		findall(Medicinas, medicinas(Medicinas), ListaResultado).
+     
+
+	 % error
+	template(_, ['Disculpa, no entiendo tu pregunta, puedes volver a escribir por favor, recuerdo poner un "." al final de cada oracion.'], []). 
+   
 
 
 	% Reglas para las flags de la enfermedad
@@ -108,11 +142,11 @@ eliza(Input):- Input == ['Adios', '.'],
 		enfermedadSint(fiebre, leucemia).
 		enfermedadSint(sudores, leucemia).
 		enfermedadSint(hematomas, leucemia).
-		enfermedadSint(problemasencias, leucemia).
-		enfermedadSint(problemasneurologicos, leucemia).
+		enfermedadSint(problemas_de_encias, leucemia).
+		enfermedadSint(problemas_neurologicos, leucemia).
 		enfermedadSint(hinchazon, leucemia).
-		enfermedadSint(dolorhuesos, leucemia).
-		enfermedadSint(sangradofacil, leucemia).
+		enfermedadSint(dolor_de_huesos, leucemia).
+		enfermedadSint(sangrado_facil, leucemia).
 		sintomas(debilidad).
 		sintomas(fatiga).
 		sintomas(perdidapeso).
@@ -123,7 +157,10 @@ eliza(Input):- Input == ['Adios', '.'],
 		sintomas(problemas_neurologicos).
 		sintomas(hinchazon).
 		sintomas(dolor_de_huesos).
-		sintomas(sangradofacil).
+		sintomas(sangrado:facil).
+
+   
+
 
 	% Especialista
 		elizaEspecialista(X, R):- especialista(X), R = [si, X, es, un, especialista, de, leucemia].
@@ -136,10 +173,14 @@ eliza(Input):- Input == ['Adios', '.'],
 		
 		
 	% Medicina
-		elizaMedicamento(X, R):- medicinas(X), R = [si, X, es, un, medicamento, para, curar, la, Leucemia].
-		elizaMedicamento(X, R):- \+medicinas(X), R = [X, no, es, un, medicamento, para, curar, la, Leucemia].
-		medicinas(penicilina).
-		medicinas(amoxicilina).
+		elizaMedicamento(X, R):- medicinas(X), R = [si, X, es, un, medicamento, para, curar, la, leucemia].
+		elizaMedicamento(X, R):- \+medicinas(X), R = [X, no, es, un, medicamento, para, curar, la, leucemia].
+		medicinas(quimioterapia).
+		medicinas(radioterapia).
+		medicinas(inmunoterapia).
+		medicinas(terapia_dirigida:).
+		medicinas(trasplante_de_medula_osea).
+
 
 	
 match([],[]).
@@ -151,7 +192,7 @@ match([S|Stim],[I|Input]) :-
 	match(Stim, Input),!.
 
 match([S|Stim],[_|Input]) :-
-% I es un s(X), lo ignoro y continúo con el resto de la lista
+% I es un s(X), lo ignoro y continuo con el resto de la lista
 	\+atom(S),
 	match(Stim, Input),!.
 
@@ -199,102 +240,5 @@ replace0([I|_], Input, _, Resp, R):-
     X == flagMedicamentos,
     elizaMedicamento(Atom, R).
 
-% Game of thrones
+% Tipo leucemia Tratamientos
 
-% Eliza Casas:
-replace0([I|_], Input, _, Resp, R):-
-    nth0(I, Input, Atom),
-    nth0(0, Resp, X),
-    X == flagCasas,
-    elizaCasa(Atom, R).
-
-% Eliza casa de los stark
-replace0([I|_], Input, _, Resp, R):-
-    nth0(I, Input, Atom),
-    nth0(0, Resp, X),
-    X == flagStark,
-    elizaStark(Atom, R).
-
-replace0([I|_], Input, _, Resp, R):-
-	nth0(I, Input, Atom),
-	nth0(0, Resp, X),
-	X == flagfamStark,
-	familiaStark(Atom, R).
-
-% Eliza casa de los targaryen
-replace0([I|_], Input, _, Resp, R):-
-    nth0(I, Input, Atom),
-    nth0(0, Resp, X),
-    X == flagTargaryen,
-    elizaTargaryen(Atom, R).
-
-replace0([I|_], Input, _, Resp, R):-
-	nth0(I, Input, Atom),
-	nth0(0, Resp, X),
-	X == flagfamTargaryen,
-	familiaTargaryen(Atom, R).
-
-% Eliza casa de los greyjoy
-replace0([I|_], Input, _, Resp, R):-
-    nth0(I, Input, Atom),
-    nth0(0, Resp, X),
-    X == flagGreyjoy,
-    elizaGreyjoy(Atom, R).
-
-replace0([I|_], Input, _, Resp, R):-
-	nth0(I, Input, Atom),
-	nth0(0, Resp, X),
-	X == flagfamGreyjoy,
-	familiaGreyjoy(Atom, R).
-
-% Eliza casa de los tyrell
-replace0([I|_], Input, _, Resp, R):-
-    nth0(I, Input, Atom),
-    nth0(0, Resp, X),
-    X == flagTyrell,
-    elizaTyrell(Atom, R).
-
-replace0([I|_], Input, _, Resp, R):-
-	nth0(I, Input, Atom),
-	nth0(0, Resp, X),
-	X == flagfamTyrell,
-	familiaTyrell(Atom, R).
-
-% Eliza casa de los martell
-replace0([I|_], Input, _, Resp, R):-
-    nth0(I, Input, Atom),
-    nth0(0, Resp, X),
-    X == flagMartell,
-    elizaMartell(Atom, R).
-
-replace0([I|_], Input, _, Resp, R):-
-	nth0(I, Input, Atom),
-	nth0(0, Resp, X),
-	X == flagfamMartell,
-	familiaMartell(Atom, R).
-
-% Eliza casa de los lannister
-replace0([I|_], Input, _, Resp, R):-
-    nth0(I, Input, Atom),
-    nth0(0, Resp, X),
-    X == flagLannister,
-    elizaLannister(Atom, R).
-
-replace0([I|_], Input, _, Resp, R):-
-	nth0(I, Input, Atom),
-	nth0(0, Resp, X),
-	X == flagfamLannister,
-	familiaLannister(Atom, R).
-
-% Eliza casa de los baratheon
-replace0([I|_], Input, _, Resp, R):-
-    nth0(I, Input, Atom),
-    nth0(0, Resp, X),
-    X == flagBaratheon,
-    elizaBaratheon(Atom, R).
-
-replace0([I|_], Input, _, Resp, R):-
-	nth0(I, Input, Atom),
-	nth0(0, Resp, X),
-	X == flagfamBaratheon,
-	familiaBaratheon(Atom, R).
