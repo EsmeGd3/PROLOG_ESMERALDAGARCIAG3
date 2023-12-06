@@ -9,7 +9,7 @@
 
 defun dameDatos()
 (princ "Dame dato")
-(read a)
+(setq a (read))
 (princ "Dame otro dato")
-(read b)
+(setq b (read))
 (format t "El resultado es ~A" (funcall *areaCuadrado* a b))

@@ -14,3 +14,7 @@ echo -> para hacer un archivo en blanco
 git add-> poner nombre del archivo o poner un .
 git commit -m 'mi primer commit'
 git puch origin main
+
+https://github.com/EsmeGd3/PROLOG_ESMERALDAGARCIAG3.git
+
+C:\Users\Mermelada\OneDrive\Escritorio\PROLOG_20120105
