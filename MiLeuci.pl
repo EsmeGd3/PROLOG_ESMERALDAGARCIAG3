@@ -115,8 +115,12 @@ eliza(Input):- Input == ['Adios', '.'],
 	template([puedo, tomar, s(_), para, la, leucemia, ?, _], [flagMedicamentos], [2]).
 	
 	% tipos
-    template([si, tengo, leucemia, tipo, s(_), que, tratamiento, debo, tomar, ?, _], [flagTipos], [4]).
-	template([tengo, s(_), que, tratamiento, debo, tomar, ?, _], [flagTipos], [1]).
+    template([si, tengo, leucemia, tipo, s(_), que, tratamiento, debo, tomar, ?, _], [flagTiposTrata], [4]).
+	template([tengo, s(_), que, tratamiento, debo, tomar, ?, _], [flagTiposTrata], [1]).
+    
+	template([la, s(_), es, un, tipo, de, leucemia, ?, _], [flagTipos], [1]).
+
+	
 	
 	
 	
@@ -138,8 +142,6 @@ eliza(Input):- Input == ['Adios', '.'],
 	template([que, tratamientos, puedo, usar], ListaResultado, []):-
 		findall(Medicinas, medicinas(Medicinas), ListaResultado).
 	
-	template([que, tratamientos, puedo, tomar], ListaResultado, []):-
-		findall(Medicinas, medicinas(Medicinas), ListaResultado).
 	
 	template([que, necesito, para, tratarme], ListaResultado, []):-
 		findall(Medicinas, medicinas(Medicinas), ListaResultado).
@@ -150,9 +152,12 @@ eliza(Input):- Input == ['Adios', '.'],
 	template([que, tratamientos, necesito], ListaResultado, []):-
 		findall(Medicinas, medicinas(Medicinas), ListaResultado).	
 	
-	template([medicamento], ListaResultado, []):-
-		findall(Medicinas, medicinas(Medicinas), ListaResultado).
+	% tipos
      
+	 template([cuantos, tipos, de, leucemia, hay], ListaResultado, []):-
+		findall(Tipos, tipos(Tipos), ListaResultado).	
+	
+
 
 	 % error
 	template(_, ['Disculpa, no entiendo tu pregunta, puedes volver a escribir por favor, recuerdo poner un "." al final de cada oracion.'], []). 
@@ -234,6 +239,14 @@ eliza(Input):- Input == ['Adios', '.'],
 		medicinas(vigilancia_activa).
 		medicinas(tratamiento_biologico).
 
+% reglas para las flags de Tipos
+		elizatipos(X, R):- tipos(X), R = [si, X, es, un, tipo, de, leucemia].
+		elizatipos(X, R):- \+tipos(X), R = [X, no, es, un, tipo, de, leucemia].
+		tipos(lma).
+		tipos(lmc).
+		tipos(llc).
+		tipos(lla).
+		
 	
 match([],[]).
 match([], _):- true.
@@ -263,7 +276,7 @@ replace0([I|Index], Input, N, Resp, R):-
 	N1 is N + 1,
 	replace0(Index, Input, N1, R1, R),!.
 
-% Enfermedad
+
 
 % Eliza Sintomas:
 replace0([I|_], Input, _, Resp, R):-
@@ -296,8 +309,15 @@ replace0([I|_], Input, _, Resp, R):-
 replace0([I|_], Input, _, Resp, R):-
     nth0(I, Input, Atom),
     nth0(0, Resp, X),
-    X == flagTipos,
+    X == flagTiposTrata,
     elizaMedicamentoTipo(Atom, R).
 
-% Tipo leucemia Tratamientos
+		% Eliza tipos:
+replace0([I|_], Input, _, Resp, R):-
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagTipos,
+    elizatipos(Atom, R).
+
+
 
