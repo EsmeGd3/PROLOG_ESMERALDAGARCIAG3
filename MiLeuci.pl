@@ -39,18 +39,19 @@ eliza(Input):- Input == ['Adios', '.'],
 		template([que, es, leucemia, ?, _], ['La leucemia es un tipo de cancer que afecta a las celulas sanguineas y a la medula osea, donde se producen estas celulas. Se caracteriza por la produccion descontrolada de celulas sanguineas anormales, que remplazan a las celulas sanguineas normales.'], []).
 		template([que, tipos, de, leucemia, hay, ?, _], ['Hay varios tipos de leucemia, siendo los principales la leucemia mieloide aguda (LMA), la leucemia mieloide cronica (LMC), la leucemia linfoblastica aguda (LLA) y la leucemia linfoblastica cronica (LLC).'], []).
 		template([que, tratamiento, debo, tomar, si, tengo, leucemia, ?, _], ['El tratamiento especifico de la leucemia depende del tipo exacto de leucemia, la edad del paciente, la salud general y otros factores individuales.'], []).
-		template([como, se, diagnostica, la, leucemia, ?, _], ['El diagnóstico involucra análisis de sangre, biopsia de médula ósea y pruebas citogenéticas para identificar el tipo y características de la leucemia.'], []).
-		template([cuales, son, las, opciones, de, tratamiento, para, la, leucemia, ?, _], ['Las opciones de tratamiento incluyen quimioterapia, radioterapia, trasplante de médula ósea y medicamentos específicos según el tipo y la etapa de la leucemia.'], []).
+		template([como, se, diagnostica, la, leucemia, ?, _], ['El diagnostico involucra analisis de sangre, biopsia de medula osea y pruebas citogeneticas para identificar el tipo y caracteristicas de la leucemia.'], []).
+		template([cuales, son, las, opciones, de, tratamiento, para, la, leucemia, ?, _], ['Las opciones de tratamiento incluyen quimioterapia, radioterapia, trasplante de medula osea y medicamentos especificos segun el tipo y la etapa de la leucemia.'], []).
 		template([como, afecta, emocionalmente, la, leucemia, a, los, pacientes, y, sus, familias, ?, _], ['La leucemia puede tener un fuerte impacto emocional en pacientes y sus familias debido al proceso de tratamiento, la incertidumbre y los cambios en el estilo de vida. El apoyo emocional es esencial.'], []).
-		template([cuales, son, las, medidas, preventivas, para, la, leucemia, ?, _], ['No hay medidas específicas para prevenir la leucemia, pero evitar la exposición a sustancias químicas y radiación puede reducir ciertos riesgos. La detección temprana es clave para un mejor pronóstico.'], []).
-        template([cual, es, el, pronostico, tipico, para, pacientes, con, leucemia, ?, _], ['El pronóstico varía según el tipo y la etapa de la leucemia. Muchos pacientes responden bien al tratamiento, pero la supervivencia a largo plazo depende de varios factores.'], []).
+		template([cuales, son, las, medidas, preventivas, para, la, leucemia, ?, _], ['No hay medidas especificas para prevenir la leucemia, pero evitar la exposicion a sustancias quimicas y radiacion puede reducir ciertos riesgos. La deteccion temprana es clave para un mejor pronostico.'], []).
+        template([cual, es, el, pronostico, tipico, para, pacientes, con, leucemia, ?, _], ['El pronostico varia segun el tipo y la etapa de la leucemia. Muchos pacientes responden bien al tratamiento, pero la supervivencia a largo plazo depende de varios factores.'], []).
 		template([que, es, quimioterapia, ?, _], ['La quimioterapia es un tratamiento comun para la leucemia y utiliza medicamentos para eliminar o controlar las celulas cancerosas. Puede administrarse por via oral o intravenosa.'], []).
 		template([que, es, radioterapia, ?, _], ['La radioterapia utiliza radiacion para dañar o destruir celulas cancerosas. Se dirige a areas especificas del cuerpo y es mas comun en leucemias que afectan principalmente a ciertos tejidos.'], []).
 		template([que, es, inmunoterapia, ?, _], ['Algunas formas de leucemia responden bien a la inmunoterapia, que utiliza el sistema inmunologico del cuerpo para combatir las celulas cancerosas.'], []).
-		template([que, es, terapia, dirigida, ?, _], ['Medicamentos dirigidos específicamente a ciertas moléculas involucradas en el crecimiento y supervivencia celular pueden ser utilizados en el tratamiento de la leucemia.'], []).
-		template([que, es, trasplante, de, medula, osea, ?, _], ['En ciertos casos, especialmente en leucemias agudas o resistentes al tratamiento, un trasplante de médula ósea puede ser una opción. Este procedimiento implica reemplazar la médula ósea dañada o enferma con células madre sanas.'], []).
+		template([que, es, terapia, dirigida, ?, _], ['Medicamentos dirigidos especificamente a ciertas moleculas involucradas en el crecimiento y supervivencia celular pueden ser utilizados en el tratamiento de la leucemia.'], []).
+		template([que, es, trasplante, de, medula, osea, ?, _], ['En ciertos casos, especialmente en leucemias agudas o resistentes al tratamiento, un trasplante de medula osea puede ser una opcion. Este procedimiento implica reemplazar la medula osea dañada o enferma con celulas madre sanas.'], []).
 		template([que, es, quimioterapia, ?, _], ['La quimioterapia es un tratamiento comun para la leucemia y utiliza medicamentos para eliminar o controlar las celulas cancerosas. Puede administrarse por via oral o intravenosa.'], []).
 		template([que, es, quimioterapia, ?, _], ['La quimioterapia es un tratamiento comun para la leucemia y utiliza medicamentos para eliminar o controlar las celulas cancerosas. Puede administrarse por via oral o intravenosa.'], []).
+		template([para, que, es, el chatbot, ?, _], ['Es para ayudar a las personas en darles informacion acerca de esta enfermedad, y tambien para acreditar la materia de PROLOG, PONGAME 100 PAro.'], []).
 		
     
 	% LMA
@@ -121,6 +122,31 @@ eliza(Input):- Input == ['Adios', '.'],
     
 	template([la, s(_), es, un, tipo, de, leucemia, ?, _], [flagTipos], [1]).
 
+	% tratamientos para cada tipo 
+
+	template([el, tratamiento, s(_), es, para, la, leucemia, tipo, lma, ?, _], [flagLMA], [2]).
+	template([la, s(_), es, para, la, lma, ?, _], [flagLMA], [1]).
+	template([el, s(_), es, para, la, lmc, ?, _], [flagLMA], [1]).
+	template([la, s(_), es, un, tratamiento, para, la, lma, ?, _], [flagLMA], [1]).
+	template([el, s(_), es, un, tratamiento, para, la, lma, ?, _], [flagLMA], [1]).
+
+	template([el, tratamiento, s(_), es, para, la, leucemia, tipo, lmc, ?, _], [flagLMC], [2]).
+	template([la, s(_), es, para, la, lmc, ?, _], [flagLMC], [1]).
+	template([el, s(_), es, para, la, lmc, ?, _], [flagLMC], [1]).
+	template([la, s(_), es, un, tratamiento, para, la, lmc, ?, _], [flagLMC], [1]).
+	template([el, s(_), es, un, tratamiento, para, la, lmc, ?, _], [flagLMC], [1]).
+
+    template([el, tratamiento, s(_), es, para, la, leucemia, tipo, lla, ?, _], [flagLLA], [2]).
+	template([la, s(_), es, para, la, lla, ?, _], [flagLLA], [1]).
+	template([la, s(_), es, un, tratamiento, para, la, lla, ?, _], [flagLLA], [1]).
+	template([el, s(_), es, un, tratamiento, para, la, lla, ?, _], [flagLLA], [1]).
+	template([el, s(_), es, para, la, lla, ?, _], [flagLLA], [1]).
+
+	template([el, tratamiento, s(_), es, para, la, leucemia, tipo, llc, ?, _], [flagLLC], [2]).
+	template([la, s(_), es, para, la, llc, ?, _], [flagLLC], [1]).
+	template([la, s(_), es, un, tratamiento, para, la, llc, ?, _], [flagLLC], [1]).
+	template([el, s(_), es, un, tratamiento, para, la, llc, ?, _], [flagLLC], [1]).
+	template([el, s(_), es, para, la, llc, ?, _], [flagLLC], [1]).
 	
 	
 	
@@ -164,7 +190,6 @@ eliza(Input):- Input == ['Adios', '.'],
 	 template([cuantos, tipos, de, leucemia, hay], ListaResultado, []):-
 		findall(Tipos, tipos(Tipos), ListaResultado).	
 
-	
 	 template([tipos], ListaResultado, []):-
 		findall(Tipos, tipos(Tipos), ListaResultado).	
 
@@ -248,9 +273,6 @@ eliza(Input):- Input == ['Adios', '.'],
 		sintomas(dolor_de_huesos).
 		sintomas(sangrado_facil).
 
-   
-
-
 	% reglas para las flags de Especialista
 		elizaEspecialista(X, R):- especialista(X), R = [si, X, es, un, especialista, de, leucemia].
     	elizaEspecialista(X, R):- \+especialista(X), R = [X, no, es, un, especialista, de, leucemia].
@@ -259,8 +281,6 @@ eliza(Input):- Input == ['Adios', '.'],
 		especialista(hematologo_oncologo).
 		especialista(oncologo_radioterapeuta).
 		especialista(especialista_en_trasplante_de_medula_osea).
-		
-		
 		
 	% reglas para las flags de Tratamientos
 		elizaMedicamento(X, R):- medicinas(X), R = [si, X, es, un, tratamiento, para, curar, la, leucemia].
