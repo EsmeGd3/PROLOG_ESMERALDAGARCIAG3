@@ -173,14 +173,13 @@ eliza(Input):- Input == ['Adios', '.'],
 		
 		
 	% Medicina
-		elizaMedicamento(X, R):- medicinas(X), R = [si, X, es, un, medicamento, para, curar, la, leucemia].
-		elizaMedicamento(X, R):- \+medicinas(X), R = [X, no, es, un, medicamento, para, curar, la, leucemia].
+		elizaMedicamento(X, R):- medicinas(X), R = [si, X, es, un, tratamiento, para, curar, la, leucemia].
+		elizaMedicamento(X, R):- \+medicinas(X), R = [X, no, es, un, tratamiento, para, curar, la, leucemia].
 		medicinas(quimioterapia).
 		medicinas(radioterapia).
 		medicinas(inmunoterapia).
 		medicinas(terapia_dirigida:).
 		medicinas(trasplante_de_medula_osea).
-
 
 	
 match([],[]).
