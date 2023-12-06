@@ -52,11 +52,11 @@ eliza(Input):- Input == ['Adios', '.'],
 
 	% Preguntas acerca de medicamentos que puede tomar.
 
-	template([puedo, tomar, s(_), para, la, faringitis, _], [flagMedicamentos], [2]).
+	template([puedo, tomar, s(_), para, la, Leucemia, _], [flagMedicamentos], [2]).
 	template([puedo, tomar, s(_)], [flagMedicamentos], [2]).
 	
 	
-	% sintomas de faringitis.
+	% sintomas de Leucemia.
 
 	template([cuales, son, los, sintomas], ListaResultado, []):-
 		findall(Sintomas, sintomas(Sintomas), ListaResultado).
@@ -89,96 +89,36 @@ eliza(Input):- Input == ['Adios', '.'],
 	template([medicamento], ListaResultado, []):-
 		findall(Medicinas, medicinas(Medicinas), ListaResultado).
 
-	% Comienzo de template para Game of thrones
-	
-		template([que, es, game, of, thrones, _], ['fue una serie de television de fantasía epica creada por David Benioff y D. B. Weiss. La serie se baso en la serie de novelas "Canción de hielo y fuego" escrita por George R. R. Martin. La primera novela de la serie, "Juego de tronos", sirvio como base para la primera temporada de la serie de television.'],[]).
-		template([de, que, trata, game, of, thrones, _], ['"Game of Thrones" es una serie de television que sigue las luchas de varias casas nobles por el control del Trono de Hierro en el continente ficticio de Westeros. La trama esta llena de intrigas politicas, guerras, dragones, magia y personajes complejos. A lo largo de la serie, se exploran temas de poder, traicion y supervivencia en un mundo medieval de fantasia.'],[]).
-		template([cual, es, la, trama, principal, de, game, of, thrones, _], ['"Game of Thrones" narra la lucha brutal y compleja entre diversas casas nobles por el Trono de Hierro en los Siete Reinos de Westeros, con elementos de guerra, política, traición y fantasía. La serie destaca por sus giros inesperados y la intrincada red de personajes e intrigas.'],[]).
-		template([cual, es, la, trama, secundaria, de, game, of, thrones, _], ['En la trama secundaria, la Guardia de la Noche defiende Westeros de amenazas más allá de la Muralla, como los Caminantes Blancos. Personajes como Jon Snow enfrentan peligros en el norte, añadiendo elementos de fantasía a la historia.'],[]).
-		template([cual, es, el, conflicto, central, de, la, serie, _], ['El conflicto central en "Game of Thrones" es la lucha por el Trono de Hierro, que simboliza el dominio sobre los Siete Reinos de Westeros. Múltiples casas nobles, cada una con sus propios intereses y reclamaciones al trono, se enfrentan en una compleja red de intrigas políticas, alianzas cambiantes y conflictos armados. Este conflicto central es la fuerza impulsora detrás de la mayoría de las acciones y eventos en la serie, mientras los personajes luchan por el poder y la supervivencia en un mundo lleno de traiciones y desafíos.'],[]).
-	
-	% Informacion de las casas
-
-		template([la, casa, s(_), es, de, la, serie, game, of, thrones, _], [flagCasas], [2]).
-		template([cuales, son, las, casas, que, existen ], ListaResultado, []):-
-		findall(Casas, casas(Casas), ListaResultado).
-	
-	% Casa de los stark
-
-		template([es, s(_), de, la, casa, de, los, stark, _], [flagStark], [1]).
-		template([quien, es, el, hijo, de, s(_)], [flagfamStark],[5]).
-		template([que, emblema, representa, la, casa, de, los, stark, _], ['El emblema que representa la casa de los stark es un lobo azul.'],[]).
-		template([cuales, son, los, miembros, de, la, casa, stark ], ListaResultado, []):-
-			findall(Stark, stark(Stark), ListaResultado).
-	
-	% Casa de los targaryen
-
-		template([es, s(_), de, la, casa, de, los, targaryen, _], [flagTargaryen], [1]).
-		template([quien, es, el, hijo, de, s(_)], [flagfamTargaryen],[5]).
-		template([que, emblema, representa, la, casa, de, los, targaryen, _], ['El emblema que representa la casa de los targaryen es un dragon de tres cabezas rojo.'],[]).
-		template([cuales, son, los, miembros, de, la, casa, targaryen ], ListaResultado, []):-
-			findall(Targaryen, targaryen(Targaryen), ListaResultado).
-	
-	% Casa de los greyjoy
-
-		template([es, s(_), de, la, casa, de, los, greyjoy, _], [flagGreyjoy], [1]).
-		template([quien, es, el, hijo, de, s(_)], [flagfamGreyjoy],[5]).
-		template([que, emblema, representa, la, casa, de, los, greyjoy, _], ['El emblema que representa la casa de los greyjoy es un kraken dorado sobre un fondo negro.'],[]).
-		template([cuales, son, los, miembros, de, la, casa, greyjoy ], ListaResultado, []):-
-			findall(Greyjoy, greyjoy(Greyjoy), ListaResultado).
-	
-	% Casa de los tyrell
-
-		template([es, s(_), de, la, casa, de, los, tyrell, _], [flagTyrell], [1]).
-		template([quien, es, el, hijo, de, s(_)], [flagfamTyrell],[5]).
-		template([que, emblema, representa, la, casa, de, los, tyrell, _], ['El emblema que representa la casa de los tyrell es una rosa dorada sobre un campo verde.'],[]).
-		template([cuales, son, los, miembros, de, la, casa, tyrell ], ListaResultado, []):-
-			findall(Tyrell, tyrell(Tyrell), ListaResultado).
-	
-	% Casa de los martell
-
-		template([es, s(_), de, la, casa, de, los, martell, _], [flagMartell], [1]).
-		template([quien, es, el, hijo, de, s(_)], [flagfamMartell],[5]).
-		template([que, emblema, representa, la, casa, de, los, martell, _], ['El emblema que representa la casa de los martell es un sol y una lanza dorados sobre un fondo naranja. '],[]).
-		template([cuales, son, los, miembros, de, la, casa, martell ], ListaResultado, []):-
-			findall(Martell, martell(Martell), ListaResultado).
-	
-	% Casa de los lannister
-
-		template([es, s(_), de, la, casa, de, los, lannister, _], [flagLannister], [1]).
-		template([quien, es, el, hijo, de, s(_)], [flagfamLannister],[5]).
-		template([que, emblema, representa, la, casa, de, los, lannister, _], ['El emblema que representa la casa de los lannister es un leon dorado sobre un campo rojo. '],[]).
-		template([cuales, son, los, miembros, de, la, casa, lannister ], ListaResultado, []):-
-			findall(Lannister, lannister(Lannister), ListaResultado).
-
-	% Casa de los baratheon
-
-		template([es, s(_), de, la, casa, de, los, baratheon, _], [flagBaratheon], [1]).
-		template([quien, es, el, hermano, de, s(_)], [flagfamBaratheon],[5]).
-		template([que, emblema, representa, la, casa, de, los, baratheon, _], ['El emblema que representa la casa de los baratheon es un ciervo coronado negro sobre un campo dorado. '],[]).
-		template([cuales, son, los, miembros, de, la, casa, baratheon ], ListaResultado, []):-
-			findall(Baratheon, baratheon(Baratheon), ListaResultado).
 
 	% Reglas para las flags de la enfermedad
 
 	% Sintomas
-		elizaSintomas(X, R):- sintomas(X), R = [si, X, es, muy, probable, que, sea, un, sintoma, de, la, faringitis].
-    	elizaSintomas(X, R):- \+sintomas(X), R = [X, no, es, un, sintoma, de, la, faringitis].
+		elizaSintomas(X, R):- sintomas(X), R = [si, X, es, muy, probable, que, sea, un, sintoma, de, Leucemia].
+    	elizaSintomas(X, R):- \+sintomas(X), R = [X, no, es, un, sintoma, de, la, Leucemia].
 		elizafamSintomas(X,R) :- enfermedadSint(X,Y), R=["si tienes sintoma de", X, "es", Y].	
-		enfermedadSint(malestargeneral, faringitis).
-		enfermedadSint(fiebre, faringitis).
-		enfermedadSint(doloraltragar, faringitis).
-		enfermedadSint(enrojecimientodelafaringe, faringitis).
-		enfermedadSint(gangliosinflamados, faringitis).
-		enfermedadSint(infeccion, faringitis).
-		enfermedadSint(dolordegarganta, faringitis).
-		sintomas(malestargeneral).
+		enfermedadSint(debilidad, leucemia).
+		enfermedadSint(fatiga, leucemia).
+		enfermedadSint(perdidapeso, leucemia).
+		enfermedadSint(fiebre, leucemia).
+		enfermedadSint(sudores, leucemia).
+		enfermedadSint(hematomas, leucemia).
+		enfermedadSint(problemasencias, leucemia).
+		enfermedadSint(problemasneurologicos, leucemia).
+		enfermedadSint(hinchazon, leucemia).
+		enfermedadSint(dolorhuesos, leucemia).
+		enfermedadSint(sangradofacil, leucemia).
+	
+		sintomas(hematomas).
+		sintomas(debilidad).
+		sintomas(fatiga).
+		sintomas(perdidapeso).
 		sintomas(fiebre).
-		sintomas(doloraltragar).
-		sintomas(enrojecimientodelafaringe).
-		sintomas(gangliosinflamados).
-		sintomas(infeccion).
-		sintomas(dolordegarganta).
+		sintomas(sudores).
+		sintomas(problemasencias).
+		sintomas(problemasneurologicos).
+		sintomas(hinchazon).
+		sintomas(dolorhuesos).
+		sintomas(sangradofacil).
 
 	% Especialista
 		elizaEspecialista(X, R):- especialista(X), R = [si, X, es, un, especialista, de, faringitis].
