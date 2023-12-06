@@ -115,8 +115,8 @@ eliza(Input):- Input == ['Adios', '.'],
 	template([puedo, tomar, s(_), para, la, leucemia, ?, _], [flagMedicamentos], [2]).
 	
 	% tipos
-    template([si, tengo, leucemia, tipo, s(_), que, tratamiento, debo, tomar, ?, _], [flagMedicamentos], [2]).
-	template([tengo, s(_), que, tratamiento, debo, tomar, ?, _], [flagMedicamentos], [2]).
+    template([si, tengo, leucemia, tipo, s(_), que, tratamiento, debo, tomar, ?, _], [flagTipos], [4]).
+	template([tengo, s(_), que, tratamiento, debo, tomar, ?, _], [flagTipos], [1]).
 	
 	
 	
@@ -132,22 +132,22 @@ eliza(Input):- Input == ['Adios', '.'],
 
 	% Medicina para curar la Leucemia
 
-	template([que, medicamento, cura, la, leucemia], ListaResultado, []):-
+	template([que, tratamientos, cura, la, leucemia], ListaResultado, []):-
 		findall(Medicinas, medicinas(Medicinas), ListaResultado).
 	
-	template([que, medicamento, puedo, usar], ListaResultado, []):-
+	template([que, tratamientos, puedo, usar], ListaResultado, []):-
 		findall(Medicinas, medicinas(Medicinas), ListaResultado).
 	
-	template([que, medicamento, puedo, tomar], ListaResultado, []):-
+	template([que, tratamientos, puedo, tomar], ListaResultado, []):-
 		findall(Medicinas, medicinas(Medicinas), ListaResultado).
 	
-	template([que, necesito, para, curarme], ListaResultado, []):-
+	template([que, necesito, para, tratarme], ListaResultado, []):-
 		findall(Medicinas, medicinas(Medicinas), ListaResultado).
 
-	template([que, medicamentos, necesito, para, curarme], ListaResultado, []):-
+	template([que, tratamientos, necesito, para, curarme], ListaResultado, []):-
 		findall(Medicinas, medicinas(Medicinas), ListaResultado).	
 	
-	template([que, medicamentos, necesito], ListaResultado, []):-
+	template([que, tratamientos, necesito], ListaResultado, []):-
 		findall(Medicinas, medicinas(Medicinas), ListaResultado).	
 	
 	template([medicamento], ListaResultado, []):-
@@ -191,7 +191,7 @@ eliza(Input):- Input == ['Adios', '.'],
    
 
 
-	% Especialista
+	% reglas para las flags de Especialista
 		elizaEspecialista(X, R):- especialista(X), R = [si, X, es, un, especialista, de, leucemia].
     	elizaEspecialista(X, R):- \+especialista(X), R = [X, no, es, un, especialista, de, leucemia].
 		especialista(hematologo_oncologo).
@@ -201,14 +201,38 @@ eliza(Input):- Input == ['Adios', '.'],
 		especialista(especialista_en_trasplante_de_medula_osea).
 		
 		
-	% Tratamientos
+		
+	% reglas para las flags de Tratamientos
 		elizaMedicamento(X, R):- medicinas(X), R = [si, X, es, un, tratamiento, para, curar, la, leucemia].
 		elizaMedicamento(X, R):- \+medicinas(X), R = [X, no, es, un, tratamiento, para, curar, la, leucemia].
+		elizaMedicamentoTipo(X, R) :- tipoTrata(X,Y), R=["si tienes leucemia tipo ", X, " toma el tratamiento de", Y].	
+		tipoTrata(lma, quimioterapia).
+		tipoTrata(lma, radioterapia).
+		tipoTrata(lma, trasplante_de_medula_osea).
+		tipoTrata(lma, terapia_dirigida).
+		tipoTrata(lmc, interferon).
+		tipoTrata(lmc, trasplante_de_medula_osea).
+		tipoTrata(lmc, itk).
+		tipoTrata(lla, radioterapia).
+		tipoTrata(lla, quimioterapia).
+		tipoTrata(lla, inmunoterapia).
+		tipoTrata(lla, trasplante_de_medula_osea).
+		tipoTrata(lla, terapia_dirigida).
+		tipoTrata(llc, inmunoterapia).
+		tipoTrata(llc, quimioterapia).
+		tipoTrata(llc, vigilancia_activa).
+		tipoTrata(llc, terapia_dirigida).
+		tipoTrata(llc, tratamiento_biologico).
+		tipoTrata(llc, trasplante_de_medula_osea).
 		medicinas(quimioterapia).
 		medicinas(radioterapia).
 		medicinas(inmunoterapia).
 		medicinas(terapia_dirigida).
 		medicinas(trasplante_de_medula_osea).
+		medicinas(interferon).
+		medicinas(itk).
+		medicinas(vigilancia_activa).
+		medicinas(tratamiento_biologico).
 
 	
 match([],[]).
@@ -267,6 +291,13 @@ replace0([I|_], Input, _, Resp, R):-
     nth0(0, Resp, X),
     X == flagMedicamentos,
     elizaMedicamento(Atom, R).
+
+	% Eliza tipos:
+replace0([I|_], Input, _, Resp, R):-
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagTipos,
+    elizaMedicamentoTipo(Atom, R).
 
 % Tipo leucemia Tratamientos
 
