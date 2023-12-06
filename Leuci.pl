@@ -45,7 +45,8 @@ eliza(Input):- Input == ['Adios', '.'],
 	% LMA
 	template([que, es, leucemia, mieloide, aguda, ?, _], ['Es un tipo de cancer de la sangre y la medula osea que afecta a las celulas mieloides inmaduras'], []).
     template([que, es, LMA, ?, _], ['La leucemia mieloide aguda (LMA), es un tipo de cancer de la sangre y la medula osea que afecta a las celulas mieloides inmaduras'], []).
-   
+    template([que, celulas, afecta,la, LMA, ?, _], ['La leucemia mieloide aguda (LMA), es un tipo de cancer de la sangre y la medula osea que afecta a las celulas mieloides inmaduras'], []).
+    
    
    
    
