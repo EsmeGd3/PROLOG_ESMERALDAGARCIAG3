@@ -113,6 +113,7 @@ eliza(Input):- Input == ['Adios', '.'],
 	% tratamientos
 	template([puedo, tomar, el, tratamiento, s(_), para, la, leucemia, ?, _], [flagMedicamentos], [4]).
 	template([puedo, tomar, s(_), para, la, leucemia, ?, _], [flagMedicamentos], [2]).
+
 	
 	% tipos
     template([si, tengo, leucemia, tipo, s(_), que, tratamiento, debo, tomar, ?, _], [flagTiposTrata], [4]).
@@ -134,7 +135,13 @@ eliza(Input):- Input == ['Adios', '.'],
 	template([cuales, son, los, especialistas], ListaResultado, []):-
 		findall(Especialistas, especialista(Especialistas), ListaResultado).
 
-	% Medicina para curar la Leucemia
+	template([que, especialistas, hay], ListaResultado, []):-
+		findall(Especialistas, especialista(Especialistas), ListaResultado).
+
+	template([especialistas], ListaResultado, []):-
+		findall(Especialistas, especialista(Especialistas), ListaResultado).
+
+	% tratamientos leucemia
 
 	template([que, tratamientos, cura, la, leucemia], ListaResultado, []):-
 		findall(Medicinas, medicinas(Medicinas), ListaResultado).
@@ -142,21 +149,69 @@ eliza(Input):- Input == ['Adios', '.'],
 	template([que, tratamientos, puedo, usar], ListaResultado, []):-
 		findall(Medicinas, medicinas(Medicinas), ListaResultado).
 	
-	
-	template([que, necesito, para, tratarme], ListaResultado, []):-
-		findall(Medicinas, medicinas(Medicinas), ListaResultado).
 
 	template([que, tratamientos, necesito, para, curarme], ListaResultado, []):-
 		findall(Medicinas, medicinas(Medicinas), ListaResultado).	
 	
 	template([que, tratamientos, necesito], ListaResultado, []):-
 		findall(Medicinas, medicinas(Medicinas), ListaResultado).	
+
+	template([tratamientos], ListaResultado, []):-
+		findall(Medicinas, medicinas(Medicinas), ListaResultado).	
 	
 	% tipos
      
 	 template([cuantos, tipos, de, leucemia, hay], ListaResultado, []):-
 		findall(Tipos, tipos(Tipos), ListaResultado).	
+
 	
+	 template([tipos], ListaResultado, []):-
+		findall(Tipos, tipos(Tipos), ListaResultado).	
+
+	% tratamientos para cada tipo lma
+     template([cuantos, tratamientos, hay, para, la, lma, ?], ListaResultado, []):-
+		findall(LMA, lma(LMA), ListaResultado).	
+
+	 template([tratamientos, para, lma], ListaResultado, []):-
+		findall(LMA, lma(LMA), ListaResultado).	
+
+	template([tratamientos, lma], ListaResultado, []):-
+		findall(LMA, lma(LMA), ListaResultado).	
+
+	% tratamientos para cada tipo lmc
+	
+	template([cuantos, tratamientos, hay, para, la, lmc, ?], ListaResultado, []):-
+		findall(LMC, lmc(LMC), ListaResultado).	
+
+	template([tratamientos,para, lmc], ListaResultado, []):-
+		findall(LMC, lmc(LMC), ListaResultado).	
+
+	template([tratamientos, lmc], ListaResultado, []):-
+		findall(LMC, lmc(LMC), ListaResultado).	
+    
+	% tratamientos para cada tipo lla
+
+	template([cuantos, tratamientos, hay, para, la, lla, ?], ListaResultado, []):-
+			findall(LLA, lla(LLA), ListaResultado).	
+
+	template([tratamientos, para, lla], ListaResultado, []):-
+			findall(LLA, lla(LLA), ListaResultado).	
+
+	template([tratamientos, lla], ListaResultado, []):-
+			findall(LLA, lla(LLA), ListaResultado).	
+
+	% tratamientos para cada tipo lla
+
+	template([cuantos, tratamientos, hay, para, la, llc, ?], ListaResultado, []):-
+			findall(LLC, llc(LLC), ListaResultado).	
+
+	template([tratamientos, para, llc], ListaResultado, []):-
+			findall(LLC, llc(LLC), ListaResultado).	
+
+	template([tratamientos, llc], ListaResultado, []):-
+			findall(LLC, llc(LLC), ListaResultado).	
+
+
 
 
 	 % error
@@ -191,7 +246,7 @@ eliza(Input):- Input == ['Adios', '.'],
 		sintomas(problemas_neurologicos).
 		sintomas(hinchazon).
 		sintomas(dolor_de_huesos).
-		sintomas(sangrado:facil).
+		sintomas(sangrado_facil).
 
    
 
@@ -246,6 +301,40 @@ eliza(Input):- Input == ['Adios', '.'],
 		tipos(lmc).
 		tipos(llc).
 		tipos(lla).
+
+% reglas para la lma
+		elizaTlma(X, R):- lma(X), R = [si, X, es, un, tratamiento, para, la, lma].
+		elizaTlma(X, R):- \+lma(X), R = [X, no, es, un, tratamiento, para, la, lma].
+		lma(quimioterapia).
+		lma(radioterapia).
+		lma(terapia_dirigida).
+		lma(trasplante_de_medula_osea).
+
+% reglas para la llc
+		elizaTllc(X, R):- llc(X), R = [si, X, es, un, tratamiento, para, la, llc].
+		elizaTllc(X, R):- \+llc(X), R = [X, no, es, un, tratamiento, para, la, llc].
+		llc(quimioterapia).
+		llc(inmunoterapia).
+		llc(terapia_dirigida).
+		llc(trasplante_de_medula_osea).
+		llc(vigilancia_activa).
+		llc(tratamiento_biologico).
+
+% reglas para la lmc
+		elizaTlmc(X, R):- lmc(X), R = [si, X, es, un, tratamiento, para, la, lmc].
+		elizaTlmc(X, R):- \+lmc(X), R = [X, no, es, un, tratamiento, para, la, lmc].
+		lmc(itk).
+		lmc(trasplante_de_medula_osea).
+		lmc(interferon).
+
+% reglas para la lla
+		elizaTlla(X, R):- lla(X), R = [si, X, es, un, tratamiento, para, la, lla].
+		elizaTlla(X, R):- \+lla(X), R = [X, no, es, un, tratamiento, para, la, lla].
+		lla(quimioterapia).
+		lla(inmunoterapia).
+		lla(radioterapia).
+		lla(terapia_dirigida).
+		lla(trasplante_de_medula_osea).
 		
 	
 match([],[]).
@@ -318,6 +407,30 @@ replace0([I|_], Input, _, Resp, R):-
     nth0(0, Resp, X),
     X == flagTipos,
     elizatipos(Atom, R).
+
+	replace0([I|_], Input, _, Resp, R):-
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagLMA,
+    elizaTlma(Atom, R).
+
+	replace0([I|_], Input, _, Resp, R):-
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagLMC,
+    elizaTlmc(Atom, R).
+
+	replace0([I|_], Input, _, Resp, R):-
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagLLA,
+    elizaTlla(Atom, R).
+
+	replace0([I|_], Input, _, Resp, R):-
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagLLC,
+    elizaTllc(Atom, R).
 
 
 
