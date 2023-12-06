@@ -2,7 +2,7 @@ leuci:-
 	
 	writeln('Hola, mi nombre es Leuci, tu chatbot de ayuda sobre leucemia.'),
     writeln('Por favor, ingresa tu consulta (usar solo minusculas y "." al final):'),
-	writeln('Dime lo que quieras saber, como te sientes y te ayudare depende de lo que preguntes.'),	
+	writeln('Dime lo que quieras saber y te ayudare depende de lo que preguntes :3'),	
 	readln(Input),
 	eliza(Input),!.
 
@@ -29,10 +29,10 @@ eliza(Input):- Input == ['Adios', '.'],
 
 	
     % Leucemia
-		template([hola, mi, nombre, es, s(_), '.'], ['Hola', 0, 'como', estas, '?'], [4]).
+		template([hola, soy, s(_), '.'], ['Hola', 0, 'como', estas, '?'], [2]).
 		template([estoy, bien, gracias, _], ['Excelente, Dime en que te puedo ayudar?'], []).
-		template([bien, gracias, _], ['Excelente, Dime en que te puedo ayudar?'], []).
-		template([muy, bien, gracias, _], ['Excelente, Dime en que te puedo ayudar?'], []).
+		template([bien, gracias, _], ['Me da gusto que sea asi, Dime en que te puedo ayudar?'], []).
+		template([muy, bien, gracias, _], ['Me da gusto que sea asi, Dime en que te puedo ayudar?'], []).
 		template([cual, es, tu, nombre, ?, _], ['Mi nombre es leuci, soy una base de conocimientos que fue creada para abrobar la materia de PROLOG, aparte de eso te puedo ayudar brindandote informacion acerca de la Leucemia :3'], []).
 		template([cual, es, tu, nombre, _], ['Mi nombre es leuci, soy una base de conocimientos que fue creada para abrobar la materia de PROLOG, aparte de eso te puedo ayudar brindandote informacion acerca de la Leucemia :3'], []).
 		template([que, informacion, sabes, sobre, la, leucemia, ?, _], ['Sobre la Leucemia, se acerca de varios temas que te pueden interesar como: Causas y factores de riesgo, Tipos y clasificacion, Sintomas y diagnostico, Tratamientos disponibles, Investigacion y avances medicos, Impacto emocional y apoyo, Prevencion y estilo de vida. ¿Dime que te interesa saber? :3'], []).
@@ -49,9 +49,11 @@ eliza(Input):- Input == ['Adios', '.'],
 		template([que, es, inmunoterapia, ?, _], ['Algunas formas de leucemia responden bien a la inmunoterapia, que utiliza el sistema inmunologico del cuerpo para combatir las celulas cancerosas.'], []).
 		template([que, es, terapia, dirigida, ?, _], ['Medicamentos dirigidos especificamente a ciertas moleculas involucradas en el crecimiento y supervivencia celular pueden ser utilizados en el tratamiento de la leucemia.'], []).
 		template([que, es, trasplante, de, medula, osea, ?, _], ['En ciertos casos, especialmente en leucemias agudas o resistentes al tratamiento, un trasplante de medula osea puede ser una opcion. Este procedimiento implica reemplazar la medula osea dañada o enferma con celulas madre sanas.'], []).
-		template([que, es, quimioterapia, ?, _], ['La quimioterapia es un tratamiento comun para la leucemia y utiliza medicamentos para eliminar o controlar las celulas cancerosas. Puede administrarse por via oral o intravenosa.'], []).
-		template([que, es, quimioterapia, ?, _], ['La quimioterapia es un tratamiento comun para la leucemia y utiliza medicamentos para eliminar o controlar las celulas cancerosas. Puede administrarse por via oral o intravenosa.'], []).
-		template([para, que, es, el chatbot, ?, _], ['Es para ayudar a las personas en darles informacion acerca de esta enfermedad, y tambien para acreditar la materia de PROLOG, PONGAME 100 PAro.'], []).
+		template([que, es, itk, ?, _], ['Medicamentos como el imatinib, dasatinib o nilotinib, que son ITK, son la terapia de primera linea para la LMC. Estos medicamentos bloquean las señales quimicas que hacen que las celulas leucemicas crezcan.'], []).
+		template([que, es, interferon, ?, _], ['El interferon se utiliza en medicina como tratamiento en diversas enfermedades, y existen diferentes tipos de interferones, como el interferon alfa, beta y gamma. '], []).
+		template([para, que, es, el, chatbot, ?, _], ['Es para ayudar a las personas en darles informacion acerca de esta enfermedad, y tambien para acreditar la materia de PROLOG, PONGAME 100 PAro.'], []).
+		template([quien, desarrollo, a, leuci, ?, _], ['Quien desarrollo a leuci fue la alumna DALIA ESMERALDA GARCIA DIAZ de la materia PROLOG'], []).
+		
 		
     
 	% LMA
