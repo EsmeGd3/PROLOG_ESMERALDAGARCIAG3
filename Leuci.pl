@@ -1,5 +1,3 @@
-
-
 leuci:-	
 	
 	writeln('Hola, mi nombre es Leuci, tu chatbot de ayuda sobre leucemia.'),
@@ -29,6 +27,9 @@ eliza(Input):- Input == ['Adios', '.'],
 	readln(Input1),
 	eliza(Input1), !.
 
+    % error
+	template(_, ['Disculpa, no entiendo tu pregunta, puedes volver a escribir por favor, recuerdo poner un "." al final de cada oracion.'], []). 
+    % Leucemia
 	template([hola, mi, nombre, es, s(_), '.'], ['Hola', 0, 'como', estas, '?'], [4]).
     template([estoy, bien, gracias, _], ['Excelente, Dime en que te puedo ayudar?'], []).
     template([bien, gracias, _], ['Excelente, Dime en que te puedo ayudar?'], []).
@@ -36,31 +37,23 @@ eliza(Input):- Input == ['Adios', '.'],
 	template([cual, es, tu, nombre, ?, _], ['Mi nombre es leuci, soy una base de conocimientos que fue creada para abrobar la materia de PROLOG, aparte de eso te puedo ayudar brindandote información acerca de la Leucemia :3'], []).
 	template([cual, es, tu, nombre, _], ['Mi nombre es leuci, soy una base de conocimientos que fue creada para abrobar la materia de PROLOG, aparte de eso te puedo ayudar brindandote información acerca de la Leucemia :3'], []).
 	template([que, informacion, sabes, sobre, la, leucemia, ?, _], ['Sobre la Leucemia, se acerca de varios temas que te pueden interesar como: Causas y factores de riesgo, Tipos y clasificacion, Sintomas y diagnostico, Tratamientos disponibles, Investigacion y avances medicos, Impacto emocional y apoyo, Prevencion y estilo de vida. ¿Dime que te interesa saber? :3'], []).
-	template([como, funciona, _], ['Funciono procesando el texto de entrada y generando respuestas basadas en el conocimiento y patrones de lenguaje aprendidos durante mi entrenamiento e implementacion de informacion que mi creador me esta añadiendo y actualizando.'], []).
-	template([cual, es, tu, hobby, _], ['Como base de conocimiento, no tengo hobbies en el sentido tradicional, pero espero estar disfrutando ayudando y aprendiendo nuevas cosas y tratando de entender el dialecto de los humanos.'], []).
-	template([cual, es, tu, color, favorito, _], ['Como soy una base de conocimientos, no tengo la capacidad de percibir los colores, pero puedo decirte que los colores vibrantes y cálidos suelen ser agradables para muchas personas'], []).
-	template([quien, te, creo, _], ['Fui desarrollado en la fase 1 en parte por el profesor JESUS EDUARDO ALCARAZ CHAVEZ, sin embargo, el que me termino de esculpir fue el alumno Jorge Alberto Diaz'], []).
-	template([me, podrias, dar, el, _, hoy], ['Disculpame pero esa informacion no la tengo debido a que aun no tengo conexion a la red con informacion actualizada, sin embargo, estamos en temporada navideña y comienzan los frios por lo tanto es mejor que cuando salgas a la calle te pongas un sueter.'], []).
+	template([que, es, leucemia, _], ['La leucemia es un tipo de cáncer que afecta a las células sanguíneas y a la médula ósea, donde se producen estas células. Se caracteriza por la producción descontrolada de células sanguíneas anormales, que remplazan a las células sanguíneas normales.'], []).
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
 
 	
-	template([ok, hablame, mas, sobre, el, tema, _], ['El tema que te puede interesar es acerca de la fantastica serie de Game Of Thrones'], []).
-	template([al, demonio, me, siento, de, la, fregada, _], ['quieres que llame al 911?'], []).
-	template([obvio, mamita, rica, _], ['ok, enseguida te pondre en contacto'], []).
-	template([me, siento, bien, _], ['Excelente, tengo un tema que te puede interesar, Te gustaria saber mas acerca del tema?'], []).
-	template([me, siento, muy, mal, _], ['Tranquilizate y dime, como te sientes? o quieres que llame al 911?'], []).
-	template([me, siento, mal, _], ['Respira hondo y dime, como te sientes?'], []).
-	template(_, ['podrias volver a plantear tu pregunta porque no entiendo sino entiendes vuelve a teclear leuci. y te mostrara la estructura por si quieres recordar.'], []). 
-
-	% Enfermedad
-	% Preguntas simples señálando informacion acerca de la enfermedad
-
-	template([que, es, la, faringitis, _], ['La faringitis es un Dolor o irritación en la garganta que puede ocurrir o no al tragar. A menudo acompaña a las infecciones, como un resfriado o la gripe.'],[]).
-	template([faringitis, _], ['La faringitis es un Dolor o irritación en la garganta que puede ocurrir o no al tragar. A menudo acompaña a las infecciones, como un resfriado o la gripe.'],[]).
-	template([sabes, que, es, la, faringitis, _], ['La faringitis es un Dolor o irritación en la garganta que puede ocurrir o no al tragar. A menudo acompaña a las infecciones, como un resfriado o la gripe.'],[]).
-	template([cuales, son, los, sintomas, de, la, faringitis, _], ['Los sintomas mas habituales es el Malestar general, Fiebre, Dolor de garganta al tragar, Enrojecimiento de la faringe y Ganglios cervicales inflamados.'], []).
-	template([como, se, detecta, la, faringitis, _], ['presentación más o menos del cuadro y sus características clínicas (fiebre, malestar general, mal aliento, dolor cervical, etc.) hacen sospechar un cuadro de faringo-amigdalitis aguda.'], []).
-	template([como, se, trata, la, faringitis, _], ['Independientemente de la causa de la faringitis aguda, será necesario que el paciente tenga un adecuado soporte hídrico y alimentario, Deberán usarse antiinflamatorios no esteroideos. En algunos cuadros muy severos puede ser recomendable usar corticoides, especialmente para tratar el dolor. '], []).
-	template([cuales, son, los, posibles, riesgos, de, la, faringitis, _], ['Las faringitis no suelen producir complicaciones. Sin embargo de forma muy infrecuente cuando la infección es por bacterias, generalmente por estreptococo, pueden producir: Fiebre reumática. Es una complicación muy rara en la actualidad.'], []).
 
 
 	% Sintomas
