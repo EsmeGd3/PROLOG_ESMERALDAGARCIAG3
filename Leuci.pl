@@ -43,10 +43,10 @@ eliza(Input):- Input == ['Adios', '.'],
    
 	% Sintomas
 
-	template([si, tengo, dolor, de , s(_), es, sintoma, de, faringitis, _], [flagSintomas], [4]).
-	template([si, tengo, s(_), es, sintoma, de, faringitis, _], [flagSintomas], [2]).
-	template([si, tengo, una, s(_), es, sintoma, de, faringitis, _], [flagSintomas], [3]).
-	template([si, tengo, problemas, s(_), es, sintoma, de, faringitis, _], [flagSintomas], []).
+	template([si, tengo, dolor, de , s(_), es, sintoma, de, Leucemia, _], [flagSintomas], [4]).
+	template([si, tengo, s(_), es, sintoma, de, Leucemia, _], [flagSintomas], [2]).
+	template([si, tengo, una, s(_), es, sintoma, de, Leucemia, _], [flagSintomas], [3]).
+	template([si, tengo, problemas, s(_), es, sintoma, de, Leucemia, _], [flagSintomas], []).
 	template([tengo, sintoma, de, s(_)], [flagfamSintomas],[3]).
 	
 
@@ -61,14 +61,14 @@ eliza(Input):- Input == ['Adios', '.'],
 	template([cuales, son, los, sintomas], ListaResultado, []):-
 		findall(Sintomas, sintomas(Sintomas), ListaResultado).
 
-	% Especialista en el area de la enfermedad faringitis
+	% Especialista en el area de la enfermedad Leucemia
 
 	template([cuales, son, los, especialistas], ListaResultado, []):-
 		findall(Especialistas, especialista(Especialistas), ListaResultado).
 
-	% Medicina para curar la faringitis
+	% Medicina para curar la Leucemia
 
-	template([que, medicamento, cura, la, faringitis], ListaResultado, []):-
+	template([que, medicamento, cura, la, Leucemia], ListaResultado, []):-
 		findall(Medicinas, medicinas(Medicinas), ListaResultado).
 	
 	template([que, medicamento, puedo, usar], ListaResultado, []):-
@@ -121,13 +121,13 @@ eliza(Input):- Input == ['Adios', '.'],
 		sintomas(sangradofacil).
 
 	% Especialista
-		elizaEspecialista(X, R):- especialista(X), R = [si, X, es, un, especialista, de, faringitis].
-    	elizaEspecialista(X, R):- \+especialista(X), R = [X, no, es, un, especialista, de, faringitis].
+		elizaEspecialista(X, R):- especialista(X), R = [si, X, es, un, especialista, de, Leucemia].
+    	elizaEspecialista(X, R):- \+especialista(X), R = [X, no, es, un, especialista, de, Leucemia].
 		especialista(otorrinolaringologia).
 		
 	% Medicina
-		elizaMedicamento(X, R):- medicinas(X), R = [si, X, es, un, medicamento, para, curar, la, faringitis].
-		elizaMedicamento(X, R):- \+medicinas(X), R = [X, no, es, un, medicamento, para, curar, la, faringitis].
+		elizaMedicamento(X, R):- medicinas(X), R = [si, X, es, un, medicamento, para, curar, la, Leucemia].
+		elizaMedicamento(X, R):- \+medicinas(X), R = [X, no, es, un, medicamento, para, curar, la, Leucemia].
 		medicinas(penicilina).
 		medicinas(amoxicilina).
 
