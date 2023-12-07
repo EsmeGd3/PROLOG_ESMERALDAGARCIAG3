@@ -1,7 +1,9 @@
+% inico del chatbot leuci
 leuci:-	
 	
-	writeln('Hola, mi nombre es Leuci, tu chatbot de ayuda sobre leucemia.'),
+	writeln('Hola, mi nombre es Leuci, exsoldado convertida en escritora de cartas y tambien tu chatbot de ayuda sobre leucemia.'),
     writeln('Por favor, ingresa tu consulta (usar solo minusculas y "." al final):'),
+	writeln('Tambien se acerca del anime Violet Evergarden'),
 	writeln('Dime lo que quieras saber y te ayudare depende de lo que preguntes :3'),	
 	readln(Input),
 	eliza(Input),!.
@@ -15,6 +17,8 @@ eliza(Input):- Input == ['adios', '.'],
 eliza(Input):- Input == ['Adios', '.'],
 	writeln('Nos vemos, espero haberte ayudado y vuelva pronto.'), !.
 
+
+% procesamiento de consultas
 	eliza(Input) :-
 	template(Stim, Resp, IndStim),
 	match(Stim, Input),
@@ -53,8 +57,27 @@ eliza(Input):- Input == ['Adios', '.'],
 		template([que, es, interferon, ?, _], ['El interferon se utiliza en medicina como tratamiento en diversas enfermedades, y existen diferentes tipos de interferones, como el interferon alfa, beta y gamma. '], []).
 		template([para, que, es, el, chatbot, ?, _], ['Es para ayudar a las personas en darles informacion acerca de esta enfermedad, y tambien para acreditar la materia de PROLOG, PONGAME 100 PAro.'], []).
 		template([quien, desarrollo, a, leuci, ?, _], ['Quien desarrollo a leuci fue la alumna DALIA ESMERALDA GARCIA DIAZ de la materia PROLOG'], []).
-		
-		
+
+	% violet
+
+		template([que, informacion, sabes, sobre, violet, evergarden, ?, _], ['Sobre Violet Evergarden, puedo proporcionarte informacion sobre la serie de anime "Violet Evergarden". ¿En que aspecto especifico estas interesado? :3'], []).
+		template([de, que, trata, violet, evergarden, ?, _], ['"Violet Evergarden" es una serie de anime que sigue la historia de Violet, una exsoldado que busca encontrar su proposito en la vida como escritora de cartas. La serie explora temas de emociones, amor y crecimiento personal.'], []).
+		template([temporada, de, violet, evergarden, ?, _], ['"Violet Evergarden" tiene una temporada disponible, con varios episodios que narran la fascinante historia de Violet.'], []).
+		template([personajes, de, violet, evergarden, ?, _], ['Los personajes principales de "Violet Evergarden" incluyen a Violet, Gilbert, Claudia y otros que desempeñan roles importantes en la trama. ¿Quieres saber mas sobre algun personaje en particular?'], []).
+		template([como, afecta, emocionalmente, violet, evergarden, a, los, espectadores, ?, _], ['La serie "Violet Evergarden" ha conmovido a muchos espectadores debido a su narrativa emocional y a la evolucion del personaje principal. La conexion emocional es una parte fundamental de la experiencia.'], []).
+		template([cuales, son, las, recomendaciones, para, ver, violet, evergarden, ?, _], ['Se recomienda ver "Violet Evergarden" en un ambiente tranquilo para disfrutar plenamente de la historia. Preparate para una experiencia emotiva y reflexiva.'], []).
+		template([cuantos, episodios, tiene, violet, evergarden, ?, _], ['La serie "Violet Evergarden" tiene un total de 13 episodios en su primera temporada.'], []).
+		template([donde, puedo, ver, violet, evergarden, ?, _], ['Puedes ver "Violet Evergarden" en plataformas de transmision de anime como Netflix.'], []).
+		template([puedo, ver, violet, evergarden, en, netflix, ?, _], ['Si, "Violet Evergarden" esta disponible en Netflix. Puedes disfrutar de la serie alli.'], []).
+		template([cual, es, la, trama, de, violet, evergarden, ?, _], ['La trama de "Violet Evergarden" sigue a Violet, una exsoldado que, despues de la guerra, se embarca en un viaje para comprender el significado de las emociones humanas mientras trabaja como escritora de cartas. ¿Quieres más detalles sobre la historia?'], []).
+		template([me, puedes, contar, sobre, los, episodios, de, violet, evergarden, ?, _], ['Los episodios de "Violet Evergarden" te llevan a traves de las experiencias de Violet mientras interactua con diversas personas y descubre el poder de las palabras. Cada episodio es unico y conmovedor.'], []).
+		template([cual, es, tu, personaje, favorito, en, violet, evergarden, ?, _], ['Como soy Violet Evergarden, mi personaje favorito es, por supuesto, Violet. ¿Hay algo más sobre la serie que te gustaría saber?'], []).
+		template([cual, es, el, genero, de, violet, evergarden, ?, _], ['"Violet Evergarden" pertenece a los generos de drama, fantasia y slice of life. ¿Te gustan esos generos?'], []).
+		template([recomiendame, una, serie, parecida, a, violet, evergarden, ?, _], ['Si te gusto "Violet Evergarden", es posible que disfrutes de series como "Clannad" o "Your Lie in April", que también ofrecen historias emotivas y personajes bien desarrollados.'], []).
+		template([quiero, saber, mas, sobre, violet, evergarden, ?, _], ['¡Claro! Estoy aqui para ayudarte. ¿Hay algo especifico que te gustaria saber sobre "Violet Evergarden"?'], []).
+        template([cuantos, episodios, tiene, violet, evergarden, ?, _], ['La serie "Violet Evergarden" tiene un total de 13 episodios en su primera temporada.'], []).
+        template([quien, es, violet, evergarden, ?, _], ['Violet Evergarden es la protagonista de la serie. Inicialmente una exsoldado, se convierte en escritora de cartas mientras busca comprender las emociones humanas.'], []).
+
     
 	% LMA
 		template([que, es, leucemia, mieloide, aguda, ?, _], ['Es un tipo de cancer de la sangre y la medula osea que afecta a las celulas mieloides inmaduras'], []).
@@ -102,13 +125,13 @@ eliza(Input):- Input == ['Adios', '.'],
 		template([como, afecta, emocionalmente, la, lla, a, los, pacientes, y, sus, familias, ?, _], ['La LLA puede tener un impacto emocional significativo en los pacientes y sus familias, ya que el proceso de tratamiento puede ser desafiante. El apoyo emocional es crucial.'], []).
 		template([medidas, preventivas, para, la, lla, ?, _], ['No hay medidas especificas para prevenir la LLA, pero evitar la exposicion a sustancias quimicas toxicas y radiacion puede ayudar a reducir algunos riesgos.'], []).
 		template([que, se, puede, hacer, para, mejorar, la, calidad, de, vida, en, pacientes, con, lla, ?, _], ['El apoyo psicologico, cuidados paliativos y un enfoque integral del tratamiento pueden contribuir a mejorar la calidad de vida de los pacientes con leucemia linfoblastica aguda (LLA).'], []).
-	% LLC
+	
 	
 	% Sintomas
 
-	template([tengo, muchos, s(_), es, sintoma, de, leucemia, ?, _], [flagSintomas], [2]).
+	template([si,tengo, s(_), s(_),s(_), son, sintomas, de, leucemia, ?, _], [flagSintomasM], [2,3,4]).
 	template([si, tengo, un, dolor, de, s(_), es, sintoma, de, leucemia, ?, _], [flagSintomas], [5]).
-	template([si, tengo, un, s(_), es, sintoma, de, leucemia, _], [flagSintomas], [3]).
+	template([si, tengo, s(_), es, sintoma, de, leucemia, _], [flagSintomas], [2]).
 	template([tengo, s(_), es, sintoma, de, leucemia, ?, _], [flagSintomas], [1]).
 	template([si, tengo, s(_), es, sintoma, de, leucemia, ?, _], [flagSintomas], [2]).
 	template([si, tengo, problemas, de, s(_), es, sintoma, de, leucemia, ?, _], [flagSintomas], [4]).
@@ -149,9 +172,20 @@ eliza(Input):- Input == ['Adios', '.'],
 	template([la, s(_), es, un, tratamiento, para, la, llc, ?, _], [flagLLC], [1]).
 	template([el, s(_), es, un, tratamiento, para, la, llc, ?, _], [flagLLC], [1]).
 	template([el, s(_), es, para, la, llc, ?, _], [flagLLC], [1]).
+
 	
+
+	% personajes
+    
+	template([el, personaje, s(_), es, de, ese, anime, ?, _], [flagPersonaje], [2]).
+	template([s(_), es, personaje, del, anime, ?, _], [flagPersonaje], [0]).
+
+    % generos	
+    
+	template([el, genero, s(_), coincide, con, el, anime, ?, _], [flagGenero], [0]).
+
 	
-	
+	% predicado que se utiliza para construir una lista de todas las instancias de una expresion 
 	
 	% sintomas de Leucemia.
 
@@ -238,6 +272,34 @@ eliza(Input):- Input == ['Adios', '.'],
 	template([tratamientos, llc], ListaResultado, []):-
 			findall(LLC, llc(LLC), ListaResultado).	
 
+     % personajes
+
+	 template([personajes], ListaResultado, []):-
+			findall(Personajes, personaje(Personajes), ListaResultado).	
+	 
+	 template([personaje, principal], ListaResultado, []):-
+			findall(PersonajesP, personajep(PersonajesP), ListaResultado).
+	
+	template([cuales, son, los, personajes, principales], ListaResultado, []):-
+			findall(PersonajesP, personajep(PersonajesP), ListaResultado).
+
+	template([cuales, son, los, personajes, secundarios], ListaResultado, []):-
+			findall(PersonajesS, personajese(PersonajesS), ListaResultado).
+
+	template([cuales, son, los, personajes, de, relleno], ListaResultado, []):-
+			findall(PersonajesR, personajer(PersonajesR), ListaResultado).
+
+	 % genero
+
+	 template([cuales, son, los, generos], ListaResultado, []):-
+			findall(Genero, genero(Genero), ListaResultado).
+	 template([generos], ListaResultado, []):-
+			findall(Genero, genero(Genero), ListaResultado).
+
+	 % temporadas
+
+	 % nombre de episodios
+
 
 
 
@@ -274,6 +336,17 @@ eliza(Input):- Input == ['Adios', '.'],
 		sintomas(hinchazon).
 		sintomas(dolor_de_huesos).
 		sintomas(sangrado_facil).
+	
+	% MultiSintomas
+		elizaSintomasM(X, Y, Z, R):- sintomasM(X,Y,Z), R = [si, X, Y, Z, son, sintomas, de, leucemia].
+    	elizaSintomasM(X, Y, Z, R):- \+sintomasM(X,Y,Z), R = [X, Y, Z, no, son, sintomas, de, leucemia].
+		sintomasM(debilidad, fatiga, perdidapeso).
+		sintomasM(fatiga, perdidapeso, fiebre).
+		sintomasM(hematomas, sudores, fiebre).
+		sintomasM(hinchazon, hematomas, fiebre).
+		sintomasM(perdidapeso, hinchazon, fatiga).
+		
+		
 
 	% reglas para las flags de Especialista
 		elizaEspecialista(X, R):- especialista(X), R = [si, X, es, un, especialista, de, leucemia].
@@ -358,6 +431,46 @@ eliza(Input):- Input == ['Adios', '.'],
 		lla(terapia_dirigida).
 		lla(trasplante_de_medula_osea).
 		
+% reglas de personajes de violet
+elizaPersonaje(X, R):- personaje(X), R = [si, X, es, un, personaje, del, anime, violet].
+elizaPersonaje(X, R):- \+personaje(X), R = [X, no, es, un, personaje, del, anime, violet].	
+    personaje(violet_evergarden).
+	personaje(gilbert_bougainvillea).
+	personaje(claudia_hodgins).
+	personaje(cattleya_baudelaire).
+	personaje(benedict_blue).
+	personaje(erica_brown).
+	personaje(iris_cannary).
+	personaje(lux_sibyl).
+	personaje(ann_magnolia).
+	personaje(leon_stephanotis).
+    personaje(taylor_bartlettn).
+
+% reglas de personajes principales de violet
+elizaPersonajeP(X, R):- personajep(X), R = [si, X, es, un, personaje, del, anime, violet].
+elizaPersonajeP(X, R):- \+personajep(X), R = [X, no, es, un, personaje, del, anime, violet].	
+    personajep(violet_evergarden).
+	personajep(gilbert_bougainvillea).
+
+elizaPersonajeS(X, R):- personajese(X), R = [si, X, es, un, personaje, del, anime, violet].
+elizaPersonajeS(X, R):- \+personajese(X), R = [X, no, es, un, personaje, del, anime, violet].	
+    personajese(claudia_hodgins).
+	personajese(cattleya_baudelaire).
+	personajese(benedict_blue).
+	personajese(erica_brown).
+
+elizaPersonajeR(X, R):- personajer(X), R = [si, X, es, un, personaje, del, anime, violet].
+elizaPersonajeR(X, R):- \+personajer(X), R = [X, no, es, un, personaje, del, anime, violet].	
+    personajer(iris_cannary).
+	personajer(lux_sibyl).
+	personajer(ann_magnolia).
+	personajer(leon_stephanotis).
+
+elizaGenero(X, R):- genero(X), R = [si, X, es, un, genero, del, anime, violet].
+elizaGenero(X, R):- \+genero(X), R = [X, no, es, un, genero, del, anime, violet].	
+    genero(drama).
+	genero(fantasia).
+	genero(slice_of_life).
 	
 match([],[]).
 match([], _):- true.
@@ -367,10 +480,14 @@ match([S|Stim],[I|Input]) :-
 	S == I,
 	match(Stim, Input),!.
 
+% Si S no es un atomo y es una variable u otro tipo de termino entonces se ignora el elemento actual de Input y se continua la verificacion con el resto de las listas
+
 match([S|Stim],[_|Input]) :-
 % I es un s(X), lo ignoro y continuo con el resto de la lista
 	\+atom(S),
 	match(Stim, Input),!.
+
+% predicado para reemplazar elementos en una lista, toma una lista de indices y reemplaza los elementos correspondientes en la lista de entrada 
 
 replace0([], _, _, Resp, R):- append(Resp, [], R),!.
 
@@ -387,14 +504,33 @@ replace0([I|Index], Input, N, Resp, R):-
 	N1 is N + 1,
 	replace0(Index, Input, N1, R1, R),!.
 
+	replace0([I|Index], Input, N, Resp, R):-
+	nth0(I, Input, Atom),
+	length(Index, M), M > 0,
+	select(N, Resp, Atom, R1),
+	N1 is N + 1,
+	replace0(Index, Input, N1, R1, R),!.
 
-
-% Eliza Sintomas:
+% Eliza Sintomas
 replace0([I|_], Input, _, Resp, R):-
     nth0(I, Input, Atom),
     nth0(0, Resp, X),
     X == flagSintomas,
     elizaSintomas(Atom, R).
+
+
+
+replace0([I,J,K|_], Input, _, Resp, R):-
+    nth0(I, Input, Atom),
+	nth0(0, Resp, X),
+	X == flagSintomasM,
+    nth0(J, Input, Atom1),
+    nth0(0, Resp, Y),
+	Y == flagSintomasM,
+    nth0(K, Input, Atom2),
+	nth0(0, Resp, Z),
+	Z == flagSintomasM,
+    elizaSintomasM(Atom, Atom1, Atom2, R).
 
 replace0([I|_], Input, _, Resp, R):-
     nth0(I, Input, Atom),
@@ -453,6 +589,42 @@ replace0([I|_], Input, _, Resp, R):-
     nth0(0, Resp, X),
     X == flagLLC,
     elizaTllc(Atom, R).
+
+	replace0([I|_], Input, _, Resp, R):-
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagPersonaje,
+    elizaPersonaje(Atom, R).
+   
+   replace0([I|_], Input, _, Resp, R):-
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagPersonajeP,
+    elizaPersonajeP(Atom, R).
+
+	 replace0([I|_], Input, _, Resp, R):-
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagPersonajeS,
+    elizaPersonajeS(Atom, R).
+
+	 replace0([I|_], Input, _, Resp, R):-
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagPersonajeR,
+    elizaPersonajeR(Atom, R).
+
+	replace0([I|_], Input, _, Resp, R):-
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagPersonajeG,
+    elizaPersonajesG(Atom, R).
+
+	replace0([I|_], Input, _, Resp, R):-
+    nth0(I, Input, Atom),
+    nth0(0, Resp, X),
+    X == flagGenero,
+    elizaGenero(Atom, R).
 
 
 
