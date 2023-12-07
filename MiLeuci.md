@@ -342,7 +342,7 @@ eliza(Input):- Input == ['Adios', '.'],
     	elizaSintomasM(X, Y, Z, R):- \+sintomasM(X,Y,Z), R = [X, Y, Z, no, son, sintomas, de, leucemia].
 		sintomasM(debilidad, fatiga, perdidapeso).
 		sintomasM(fatiga, perdidapeso, fiebre).
-		sintomasM(hematomas, sudores, fiebre).
+		sintomasM(hematomas, fatiga, fiebre).
 		sintomasM(hinchazon, hematomas, fiebre).
 		sintomasM(perdidapeso, hinchazon, fatiga).
 		
