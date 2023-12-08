@@ -344,6 +344,7 @@ eliza(Input):- Input == ['Adios', '.'],
 		sintomasM(fatiga, perdidapeso, fiebre).
 		sintomasM(hematomas, sudores, fiebre).
 		sintomasM(hinchazon, hematomas, fiebre).
+		sintomasM(hinchazon, fatiga, fiebre).
 		sintomasM(perdidapeso, hinchazon, fatiga).
 		
 		
