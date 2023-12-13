@@ -1,4 +1,4 @@
-% inico del chatbot leuci
+% inico del chatbot leuci y mi tema
 leuci:-	
 	
 	writeln('Hola, mi nombre es Leuci, exsoldado convertida en escritora de cartas y tambien tu chatbot de ayuda sobre leucemia.'),
